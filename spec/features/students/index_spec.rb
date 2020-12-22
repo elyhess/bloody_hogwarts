@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "As a visitor" do
-  describe "When I visit '/students/:id'" do
+  describe "When I visit '/students'" do
     before :each do
       @student_1 = Student.create!(name: "Joe", age: 12, house: "house_1")
       @student_2 = Student.create!(name: "John", age: 11, house: "house_2")
