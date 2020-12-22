@@ -2,6 +2,6 @@
 
 <% @courses.each do |course| %>
   <section id="course-<%= course.id %>">
-    <h2><%= course.name %> has <%= course.students.student_count %> students</h2>
+    <p class='course-name'><%= course.name %> has <%= course.students.student_count %> students</p>
   </section>
 <% end %>
