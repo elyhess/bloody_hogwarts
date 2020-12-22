@@ -37,6 +37,10 @@ RSpec.describe Student, type: :model do
     it '::student_count' do
       expect(Student.student_count).to eq(5)
     end
+
+    it '::average_age' do
+      expect(Student.average_age).to eq(10.8)
+    end
   end
 
 end
