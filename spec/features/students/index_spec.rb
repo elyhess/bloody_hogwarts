@@ -64,5 +64,14 @@ describe "As a visitor" do
 
       expect(page).to have_content("Average age: #{Student.average_age}")
     end
+
+    it 'I see students listed in alphabetical order' do
+      visit students_path
+
+      expect(@student_3.name).to appear_before(@student_1.name)
+      expect(@student_1.name).to appear_before(@student_2.name)
+      expect(@student_2.name).to appear_before(@student_5.name)
+      expect(@student_5.name).to appear_before(@student_4.name)
+    end
   end
 end
