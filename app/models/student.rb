@@ -8,4 +8,8 @@ class Student < ApplicationRecord
   def self.student_count
     count
   end
+
+  def self.average_age
+    average(:age)
+  end
 end
