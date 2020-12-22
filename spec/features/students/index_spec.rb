@@ -57,7 +57,12 @@ describe "As a visitor" do
         expect(page).to have_content("Age: #{@student_5.age}")
         expect(page).to have_content("House: #{@student_5.house}") 
       end
+    end
 
+    it 'I see the average age of all students' do
+      visit students_path
+
+      expect(page).to have_content("Average age: #{Student.average_age}")
     end
   end
 end
