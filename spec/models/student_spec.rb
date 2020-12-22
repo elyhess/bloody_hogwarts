@@ -41,6 +41,10 @@ RSpec.describe Student, type: :model do
     it '::average_age' do
       expect(Student.average_age).to eq(10.8)
     end
+
+    it '::order_alphabetically' do
+      expect(Student.order_alphabetically).to eq([@student_3, @student_1, @student_2, @student_5, @student_4])
+    end
   end
 
 end
