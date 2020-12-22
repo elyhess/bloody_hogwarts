@@ -31,5 +31,12 @@ describe "As a visitor" do
       expect(page).to have_content("#{@course_2.name} has #{@course_2.students.count} students")
       expect(page).to have_content("#{@course_3.name} has #{@course_3.students.count} students")
     end
+
+    it 'I see all courses listed in alphabetical order' do
+      visit courses_path
+
+      expect(@course_1.name).to appear_before(@course_2.name)
+      expect(@course_2.name).to appear_before(@course_3.name)
+    end
   end
 end
