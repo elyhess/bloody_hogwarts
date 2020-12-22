@@ -38,5 +38,29 @@ describe "As a visitor" do
       expect(@course_1.name).to appear_before(@course_2.name)
       expect(@course_2.name).to appear_before(@course_3.name)
     end
+
+    it 'I also see all students for each class in alphabetical order' do
+      visit courses_path
+
+      within("#course-#{@course_1.id}") do
+        expect(page).to have_content("Students:") 
+        expect(all('.student')[0].text).to eq(@student_3.name)
+        expect(all('.student')[1].text).to eq(@student_1.name)
+        expect(all('.student')[2].text).to eq(@student_2.name)
+        expect(all('.student')[3].text).to eq(@student_5.name)
+      end
+
+      within("#course-#{@course_2.id}") do
+        expect(page).to have_content("Students:") 
+        expect(all('.student')[0].text).to eq(@student_2.name)
+        expect(all('.student')[1].text).to eq(@student_4.name)
+      end
+
+      within("#course-#{@course_3.id}") do
+        expect(page).to have_content("Students:") 
+        expect(all('.student')[0].text).to eq(@student_2.name)
+        expect(all('.student')[1].text).to eq(@student_5.name)
+      end
+    end
   end
 end
